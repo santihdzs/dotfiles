@@ -1,3 +1,3 @@
 # Dotfiles
 
-- This repo contains my configuration files
+This repo contains my configuration files
