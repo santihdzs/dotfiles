@@ -1,0 +1,51 @@
+@media (prefers-color-scheme: dark) {  
+    /* Variables and styles specific to about:newtab and about:home */
+    @-moz-document url("about:newtab"), url("about:home") {
+  
+      :root {
+        --newtab-background-color: #2c2c2c !important;
+        --newtab-background-color-secondary: #232323 !important;
+  
+        --newtab-primary-action-background: #ff6262 !important;
+      }
+  
+      .icon {
+        color: #ff7979 !important;
+      }
+  
+      .search-wrapper .logo-and-wordmark .logo {
+        background: url("zen-logo-mocha.svg"), url("https://raw.githubusercontent.com/IAmJafeth/zen-browser/main/themes/Mocha/Red/zen-logo-mocha.svg") no-repeat center !important;
+        display: inline-block !important;
+        height: 0px !important;
+        width: 0px !important;
+        background-size: 82px !important;
+      }
+
+      .search-wrapper .logo-and-wordmark .wordmark {
+
+        height: 120px !important;
+        width: 120px !important;
+      }
+  
+      @media (max-width: 609px) {
+        .search-wrapper .logo-and-wordmark .logo {
+          background-size: 64px !important;
+          height: 64px !important;
+          width: 64px !important;
+        }
+      }
+  
+      .card-outer:is(:hover, :focus, .active):not(.placeholder) .card-title {
+        color: #ff7979 !important;
+      }
+  
+      .top-site-outer .search-topsite {
+        background-color: #89b4fa !important;
+      }
+  
+      .compact-cards .card-outer .card-context .card-context-icon.icon-download {
+        fill: #a6e3a1 !important;
+      }
+    }
+  }
+  
