@@ -1,3 +1,6 @@
+#LunarVim path
+export PATH=/Users/santihdzs/.local/bin:$PATH
+
 export PATH="/opt/homebrew/bin:$PATH"  # For Apple Silicon Macs
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -103,10 +106,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias venvactivate="source .venv/bin/activate"
-alias newvenv="python -m venv .venv"
 
-# Pyenv commands
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# aliases
+alias activate="source .venv/bin/activate"
+alias newvenv="python -m venv .venv"
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# Pyenv
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+
