@@ -40,3 +40,7 @@ lvim.keys.normal_mode["<leader>t"] = ":lua ToggleTermSplit()<CR>"
 
 -- Make Escape exit terminal mode easily
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
+
+-- Leader + R to compile and run (C++)
+lvim.keys.normal_mode["<leader>r"] = ":lua vim.cmd('lcd %:p:h | w! | !g++ % -o %:r && ./%:r')<CR>"
+
