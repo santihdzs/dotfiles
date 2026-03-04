@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+OS="$(scripts/helpers/os_detect)"
+echo "[install_packages] OS=$OS"
+
+if [[ "$OS" == "arch" ]]; then
+  pkgs="$(grep -vE '^\s*($|#)' packages/arch.pacman.txt | tr '\n' ' ')"
+  sudo pacman -S --needed $pkgs
+  exit 0
+fi
+
+if [[ "$OS" == "mac" ]]; then
+  if ! command -v brew >/dev/null 2>&1; then
+    echo "Homebrew not found. Install it first, then re-run."
+    exit 1
+  fi
+  pkgs="$(grep -vE '^\s*($|#)' packages/mac.brew.txt | tr '\n' ' ')"
+  brew install $pkgs
+  exit 0
+fi
+
+echo "Unsupported OS: $OS"
+exit 1

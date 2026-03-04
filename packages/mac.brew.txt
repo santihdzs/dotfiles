@@ -1,0 +1,5 @@
+git
+stow
+zsh
+tmux
+neovim

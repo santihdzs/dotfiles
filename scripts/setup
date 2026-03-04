@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+MODE="${1:-all}"
+
+case "$MODE" in
+  all)
+    scripts/install_packages
+    scripts/install_dotfiles
+    ;;
+  packages)
+    scripts/install_packages
+    ;;
+  dotfiles)
+    scripts/install_dotfiles
+    ;;
+  *)
+    echo "Usage: scripts/setup [all|packages|dotfiles]"
+    exit 1
+    ;;
+esac
+
+echo "[setup] Complete."
