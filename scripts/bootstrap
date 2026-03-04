@@ -14,9 +14,13 @@ else
   echo "[bootstrap] antidote already installed"
 fi
 
-# bun
+# bun (requires unzip)
 if [[ ! -d "$HOME/.bun" ]]; then
   echo "[bootstrap] Installing bun..."
+  if ! command -v unzip >/dev/null 2>&1; then
+    echo "[bootstrap] Installing unzip (bun dependency)..."
+    sudo pacman -S --needed --noconfirm unzip
+  fi
   curl -fsSL https://bun.sh/install | bash
 else
   echo "[bootstrap] bun already installed"

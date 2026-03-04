@@ -1,0 +1,5 @@
+# macOS
+.DS_Store
+
+# backup dir if ever accidentally inside repo
+.dotfiles-backup/
