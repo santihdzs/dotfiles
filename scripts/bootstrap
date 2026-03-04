@@ -14,6 +14,15 @@ else
   echo "[bootstrap] antidote already installed"
 fi
 
+# tmux (gpakosz/.tmux)
+if [[ ! -d "$HOME/.tmux" ]]; then
+  echo "[bootstrap] Installing tmux config..."
+  git clone https://github.com/gpakosz/.tmux.git "$HOME/.tmux"
+  ln -sf "$HOME/.tmux/.tmux.conf" "$HOME/.tmux.conf"
+else
+  echo "[bootstrap] tmux config already installed"
+fi
+
 # bun (requires unzip)
 if [[ ! -d "$HOME/.bun" ]]; then
   echo "[bootstrap] Installing bun..."
