@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="${ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
+OS="$("$ROOT/scripts/helpers/os_detect")"
+
+echo "[bootstrap] OS=$OS"
+
+# antidote
+if [[ ! -d "$HOME/.antidote" ]]; then
+  echo "[bootstrap] Installing antidote..."
+  git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.antidote"
+else
+  echo "[bootstrap] antidote already installed"
+fi
+
+# bun
+if [[ ! -d "$HOME/.bun" ]]; then
+  echo "[bootstrap] Installing bun..."
+  curl -fsSL https://bun.sh/install | bash
+else
+  echo "[bootstrap] bun already installed"
+fi
+
+echo "[bootstrap] Done."

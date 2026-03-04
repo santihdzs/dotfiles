@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+export ROOT
+
+MODE="${1:-all}"
+
+case "$MODE" in
+  all)
+    "$ROOT/scripts/bootstrap"
+    "$ROOT/scripts/install_packages"
+    "$ROOT/scripts/install_dotfiles"
+    ;;
+  bootstrap)
+    "$ROOT/scripts/bootstrap"
+    ;;
+  packages)
+    "$ROOT/scripts/install_packages"
+    ;;
+  dotfiles)
+    "$ROOT/scripts/install_dotfiles"
+    ;;
+  *)
+    echo "Usage: ./setup [all|bootstrap|packages|dotfiles]"
+    exit 1
+    ;;
+esac
+
+echo "[setup] Complete."
