@@ -1,1 +1,7 @@
-# AUR packages
+1password
+obsidian-bin
+paru
+paru-debug
+ulauncher
+visual-studio-code-bin
+zen-browser-bin
